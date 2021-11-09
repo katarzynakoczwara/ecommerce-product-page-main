@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">  
+  <title>Frontend Mentor | E-commerce product page</title>
+  <script src="https://kit.fontawesome.com/ae5e81fa28.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__left-part">
+      <button class="header__burger-btn"><i class="fas fa-bars"></i></button>
+      <h1 class="header__logo">sneakers</h1>
+      <nav class="header__nav">
+        <li class="header__nav-item">Collections</li>
+        <li class="header__nav-item">Men</li>
+        <li class="header__nav-item">Women</li>
+        <li class="header__nav-item">About</li>
+        <li class="header__nav-item">Contact</li>
+      </nav>
+    </div>
+    <div class="header__right-part">
+      <div class="header__cart-icon">
+        <img src="./images/icon-cart.svg" class="header__cart" alt="cart icon">
+      </div>
+      
+      <img src="./images/image-avatar.png" alt="profile" class="header__profile">
+    </div>
+  </header>  
+
+  <div class="shadow"></div>
+
+  <div class="mobile-menu">
+    <button class="mobile-menu__close-btn"><i class="fas fa-times"></i></button>
+    <ul class="mobile-menu__list">
+      <li class="mobile-menu__item">Collections</li>
+      <li class="mobile-menu__item">Men</li>
+      <li class="mobile-menu__item">Women</li>
+      <li class="mobile-menu__item">About</li>
+      <li class="mobile-menu__item">Contact</li>
+    </ul>
+  </div>
+ 
+    <div class="cart">
+      <h4 class="cart__title">Cart</h4>
+      <div class="cart__products">
+        <div class="cart__product">
+          <img src="./images/image-product-1.jpg" alt="" class="cart__product-img">
+          <p class="cart__product-title">Autumn Limited Edition</p>
+          <div class="cart__product-price-container">
+            <p class="cart__product-price">$125.00 x </p>
+            <p class="cart__product-amount"> 3</p>
+            <p class="cart__product-finally-price"> $375</p>
+          </div>
+          <button class="cart__product-delete-btn"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </div>
+      <div class="cart__checkout-btn">Checkout</div>
+    </div>
+
+    <div class="modal">
+      <div class="modal__content">
+
+        
+        <div class="modal__main-photo-container">
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg" class="modal__close-btn"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#69707D" fill-rule="evenodd"/></svg>
+          <!-- <svg class="modal__next-photo-btn modal__btn"> <use xlink:href='./images/icon-next.svg'/> </svg> -->
+          <img src="./images/image-product-1.jpg" alt="" class="modal__main-photo">
+          <img src="./images/icon-next.svg" alt="" class="modal__next-photo-btn modal__btn">
+          <img src="./images/icon-previous.svg" alt="" class="modal__prev-photo-btn modal__btn">
+        </div>
+        <div class="modal__photo-gallery">
+          <div class="modal__photo modal__photo--first"></div> 
+          <div class="modal__photo modal__photo--second"></div> 
+          <div class="modal__photo modal__photo--third"></div> 
+          <div class="modal__photo modal__photo--fourth"></div> 
+       </div>
+      </div>
+    </div>
+  
+    <main>
+      <div class="container">
+        <section class="photos">
+          <div class="photos__main-photo-container">
+            <img src="./images/image-product-1.jpg" alt="photo of shoes" class="photos__main-photo">
+            <img src="./images/icon-next.svg" alt="" class="photos__next-photo-btn photos__btn">
+            <img src="./images/icon-previous.svg" alt="" class="photos__prev-photo-btn photos__btn">
+          </div>
+         <div class="photos__photo-gallery">
+            <div class="photos__photo photos__photo--first photos__photo-focus"></div> 
+            <div class="photos__photo photos__photo--second"></div> 
+            <div class="photos__photo photos__photo--third"></div> 
+            <div class="photos__photo photos__photo--fourth"></div> 
+         </div>
+        </section>
+        <section class="product-description">
+          <p class="product-description__text">sneaker company</p>
+          <h4 class="product-description__title">Fall Limited Edition Sneakers</h4>
+          <p class="product-description__feature">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+          <div class="product-description__price-container">
+            <h4 class="product-description__price">$125.00 <span class="product-description__discount">50%</span></h4>
+            <p class="product-description__old-price">$250.00</p>
+          </div>
+          <div class="product-description__amount-container">
+            <p class="product-description__amount-minus">-</p>
+            <p class="product-description__amount">0</p>
+            <p class="product-description__amount-plus">+</p>
+          </div>
+          <div class="product-description__add-to-cart-btn">
+            <i class="fas fa-shopping-cart"></i> Add to cart
+          </div>
+        </section>
+      </div>      
+    </main>
+  
+
+
+ 
+
+
+
+
+  <!-- Sneaker Company
+
+  Fall Limited Edition Sneakers
+
+  
+
+  $125.00
+  50%
+  $250.00
+
+  0
+  Add to cart
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+
+  <script src="./script.js"></script>
+</body>
+</html>
