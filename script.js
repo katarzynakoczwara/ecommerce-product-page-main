@@ -46,6 +46,24 @@ const countPrice = (price, amount) => {
     return price * amount;
 }
 
+const deleteProduct = () => {
+    const amountInCart = document.querySelector('.cart__product-amount');
+    const finallyPriceInCart = document.querySelector('.cart__product-finally-price');
+    let amount = parseInt(amountInCart.textContent);
+    if(amount > 1) {
+        amount--;
+        amountInCart.textContent = amount;
+        const result = countPrice(125, amount);
+        finallyPriceInCart.textContent = `$${result}`;
+    } else {
+        deleteAllProducts();
+    }    
+}
+
+const deleteAllProducts = () => {
+    cartContainer.innerHTML = '<h4 class="cart__title">Cart</h4><p class="cart__empty">Your cart is empty</p>';
+}
+
 const addToCart = () => {
     cartIconBtn.setAttribute('data-content', amount.textContent);
     cartIconBtn.classList.add('show-amount');
@@ -64,6 +82,17 @@ const addToCart = () => {
       </div>
     </div>
     <div class="cart__checkout-btn">Checkout</div>`;
+
+    const deleteProductBtn = document.querySelector('.cart__product-delete-btn');
+    const deleteAllProductsBtn = document.querySelector('.cart__checkout-btn');
+
+    deleteProductBtn.addEventListener('click', () => {
+        deleteProduct();
+    });
+
+    deleteAllProductsBtn.addEventListener('click', () => {
+        deleteAllProducts();
+    });
 }
 
 photoBtns.forEach( btn => {
