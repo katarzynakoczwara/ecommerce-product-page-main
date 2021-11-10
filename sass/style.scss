@@ -81,7 +81,7 @@ body {
 
     &__cart-icon::before {
         position: absolute;
-        content: '1';
+        content: attr(data-content);
         top: -5%;
         right: -10%;
         padding: .25em 1em;
@@ -337,19 +337,19 @@ body {
     }
 
     &__photo--first {
-        background-image: url('../images/image-product-1.jpg');        
+        background-image: url('../images/image-product-1-thumbnail.jpg');        
     }
 
     &__photo--second {
-        background-image: url('../images/image-product-2.jpg');        
+        background-image: url('../images/image-product-2-thumbnail.jpg');        
     }
 
     &__photo--third {
-        background-image: url('../images/image-product-3.jpg');        
+        background-image: url('../images/image-product-3-thumbnail.jpg');        
     }
 
     &__photo--fourth {
-        background-image: url('../images/image-product-4.jpg');        
+        background-image: url('../images/image-product-4-thumbnail.jpg');        
     }
 
     &__photo-focus {
