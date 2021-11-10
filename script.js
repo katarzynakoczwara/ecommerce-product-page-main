@@ -1,7 +1,11 @@
 const photoBtns = document.querySelectorAll('.photos__btn');
 const mainPhoto = document.querySelector('.photos__main-photo');
+const minus = document.querySelector('.product-description__amount-minus');
+const plus = document.querySelector('.product-description__amount-plus');
+const amount = document.querySelector('.product-description__amount')
 
 let counter = 1;
+let amountCounter = 0;
 
 const nextPhoto = () => {
     if(counter < 4) {
@@ -23,6 +27,18 @@ const prevPhoto = () => {
     }    
 }
 
+const decreaseAmount = () => {
+    if(amountCounter > 0) {
+        amountCounter--;
+        amount.textContent = amountCounter;
+    }
+}
+
+const increaseAmount = () => {
+    amountCounter++;
+    amount.textContent = amountCounter;    
+}
+
 photoBtns.forEach( btn => {
     btn.addEventListener('click', () => {
         if(btn.classList.contains('photos__next-photo-btn')) {
@@ -31,6 +47,14 @@ photoBtns.forEach( btn => {
             prevPhoto();
         }
     })
-})
+});
+
+minus.addEventListener('click', () => {
+    decreaseAmount();
+});
+
+plus.addEventListener('click', () => {
+    increaseAmount();
+});
 
 
