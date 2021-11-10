@@ -141,6 +141,7 @@ body {
     height: 100%;
     background-color: hsl(0, 0%, 100%);
     z-index: 10;
+    transition: transform .4s;
 
     &__close-btn {
         margin-bottom: 2em;
@@ -161,6 +162,10 @@ body {
         padding: 0.5em 0;
         cursor: pointer;
     }
+}
+
+.mobile-menu.mobile-menu-show {
+    transform: translateX(0);
 }
 
 .cart {

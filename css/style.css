@@ -145,6 +145,10 @@ body {
   height: 100%;
   background-color: white;
   z-index: 10;
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
 }
 
 .mobile-menu__close-btn {
@@ -165,6 +169,11 @@ body {
 .mobile-menu__item {
   padding: 0.5em 0;
   cursor: pointer;
+}
+
+.mobile-menu.mobile-menu-show {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .cart {

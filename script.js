@@ -6,6 +6,9 @@ const amount = document.querySelector('.product-description__amount');
 const addToCartBtn = document.querySelector('.product-description__add-to-cart-btn');
 const cartIconBtn = document.querySelector('.header__cart-icon');
 const cartContainer = document.querySelector('.cart');
+const burgerBtn = document.querySelector('.header__burger-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuCloseBtn = document.querySelector('.mobile-menu__close-btn');
 
 let counter = 1;
 let amountCounter = 0;
@@ -123,6 +126,13 @@ cartIconBtn.addEventListener('click', () => {
     } else {
         cartContainer.classList.add('cart-show');
     }    
-})
+});
 
+burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('mobile-menu-show');
+});
+
+mobileMenuCloseBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('mobile-menu-show');
+})
 
