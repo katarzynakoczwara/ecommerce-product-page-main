@@ -9,6 +9,7 @@ const cartContainer = document.querySelector('.cart');
 const burgerBtn = document.querySelector('.header__burger-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuCloseBtn = document.querySelector('.mobile-menu__close-btn');
+const shadow = document.querySelector('.shadow');
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('.modal__close-btn');
 
@@ -135,10 +136,12 @@ cartIconBtn.addEventListener('click', () => {
 
 burgerBtn.addEventListener('click', () => {
     mobileMenu.classList.add('mobile-menu-show');
+    shadow.classList.add('shadow-show');
 });
 
 mobileMenuCloseBtn.addEventListener('click', () => {
     mobileMenu.classList.remove('mobile-menu-show');
+    shadow.classList.remove('shadow-show');
 });
 
 mainPhoto.addEventListener('click', () => {
