@@ -751,6 +751,9 @@ body {
     width: 100%;
     max-width: 60em;
   }
+  .photos__main-photo {
+    cursor: pointer;
+  }
   .product-description__price-container {
     position: relative;
     margin-bottom: 5em;

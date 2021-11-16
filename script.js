@@ -9,6 +9,8 @@ const cartContainer = document.querySelector('.cart');
 const burgerBtn = document.querySelector('.header__burger-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuCloseBtn = document.querySelector('.mobile-menu__close-btn');
+const modal = document.querySelector('.modal');
+const modalCloseBtn = document.querySelector('.modal__close-btn');
 
 let counter = 1;
 let amountCounter = 0;
@@ -137,5 +139,13 @@ burgerBtn.addEventListener('click', () => {
 
 mobileMenuCloseBtn.addEventListener('click', () => {
     mobileMenu.classList.remove('mobile-menu-show');
+});
+
+mainPhoto.addEventListener('click', () => {
+    modal.classList.add('modal-show');
+});
+
+modalCloseBtn.addEventListener('click', () => {
+    modal.classList.remove('modal-show');
 })
 

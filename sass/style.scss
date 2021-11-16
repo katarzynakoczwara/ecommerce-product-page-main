@@ -698,6 +698,11 @@ body {
             width: 100%;
             max-width: 60em;
         }
+
+        &__main-photo {
+            cursor: pointer;
+        }
+        
     }
 
     .product-description {
