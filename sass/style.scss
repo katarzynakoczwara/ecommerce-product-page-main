@@ -24,17 +24,24 @@ body {
     &__burger-btn {
         margin-right: .5em;
         padding: .3em;
-        font-size: 2.2rem;
-        color: hsl(219, 9%, 45%);
         background: none;
         border: none;
         cursor: pointer;
+    }
+
+    &__burger-btn path {
+        transition: fill .4s;
+    }
+
+    &__burger-btn:hover path {
+        fill: hsl(26, 100%, 55%);
     }
 
     &__logo {
         display: inline;
         font-size: 2.6rem;
     }
+
     &__nav {
         display: none;
         margin-left: 1.2em;
@@ -46,8 +53,7 @@ body {
     &__nav-item {
         position: relative;
         padding: 0 1em;
-        cursor: pointer;
-        
+        cursor: pointer;        
     }
 
     &__nav-item::before {
@@ -55,7 +61,7 @@ body {
         content: '';
         left: 0;
         width: 100%;
-        bottom: -200%;
+        bottom: calc(-3em + 3px);
         height: 2px;        
         background-color: hsl(26, 100%, 55%);
         transform: scaleX(0);
@@ -92,30 +98,16 @@ body {
         background-color: hsl(26, 100%, 55%);
     }
 
-    // &__z::before {
-    //     position: absolute;
-    //     content: attr(data-content);
-    //     top: -5%;
-    //     right: -10%;
-    //     padding: .25em .5em;
-    //     font-size: 1rem;
-    //     color: hsl(0, 0%, 100%);
-    //     text-align: center;
-    //     border-radius: 8px;
-    //     background-color: hsl(26, 100%, 55%);
-    // }
-
     &__profile {
         width: 4em;
         cursor: pointer;
-        border: 50%;
+        border-radius: 50%;
         border: 2px solid transparent;
-        transition: border .3s;
+        transition: border .4s;
     }
 
     &__profile:hover {
         border: 2px solid hsl(26, 100%, 55%);
-        border-radius: 50%;
     }
 }
 
@@ -130,6 +122,10 @@ body {
     z-index: 0;
 }
 
+.shadow-show {
+    display: block;
+}
+
 .mobile-menu {
     transform: translateX(-100%);
     position: absolute;
@@ -138,19 +134,26 @@ body {
     padding: 5em;
     font-weight: bold;
     width: 75%;
+    max-width: 40em;
     height: 100%;
     background-color: hsl(0, 0%, 100%);
     z-index: 10;
     transition: transform .4s;
 
     &__close-btn {
-        margin-bottom: 2em;
+        margin: 0 0 2em -1em;
         padding: 1em;
-        font-size: 1.8rem;
-        color: hsl(219, 9%, 45%);
         border: none;
         background: none;
         cursor: pointer;
+    }
+
+    &__close-btn path{
+        transition: fill .4s;
+    }
+
+    &__close-btn:hover path{
+        fill: hsl(26, 100%, 55%);
     }
 
     &__list {
@@ -159,8 +162,25 @@ body {
     }
 
     &__item {
+        position: relative;
         padding: 0.5em 0;
         cursor: pointer;
+    }
+
+    &__item::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        height: 2px;        
+        background-color: hsl(26, 100%, 55%);
+        transform: scaleX(0);
+        transition: transform .4s;
+    }
+
+    &__item:hover::before{
+        transform: scaleX(1);
     }
 }
 
@@ -172,11 +192,14 @@ body {
     display: none;
     position: absolute;
     top: 12%;
-    left: 7%;
+    right: 50%;
+    transform: translateX(50%);
     width: 85%;
+    max-width: 40em;
     min-height: 20em;
     background-color: hsl(0, 0%, 100%);
     border-radius: 8px;
+    box-shadow: 0 3px 20px hsl(220, 14%, 75%);
     z-index: 10;
     
     &__title {
@@ -254,6 +277,11 @@ body {
         text-align: center;
         border-radius: 8px;
         cursor: pointer;
+        transition: background-color .4s;
+    }
+
+    &__checkout-btn:hover {
+        background-color: hsl(26, 100%, 75%);
     }
 }
 
@@ -280,16 +308,16 @@ body {
 
     &__close-btn {
         position: absolute;
-        top: -5%;
-        right: -5%;
-        height: 5em;
-        width: 5em;
-        // padding: 1em;
+        top: -7%;
+        right: 0;
+        padding: .5em;
+        background: none;
+        border: none;
         cursor: pointer;
     }
 
     &__close-btn path {
-        fill: hsl(0, 0%, 100%);
+        transition: fill .4s;
     }
 
     &__close-btn:hover path {
@@ -309,16 +337,27 @@ body {
     }
 
     &__btn {
-        display: block;
+        // display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        padding: 1.2em;
         height: 4em;
         width: 4em;
         border-radius: 50%;
         background-color: hsl(0, 0%, 100%);
+        border: none;
         cursor: pointer;
+    }
+
+    &__btn path {
+        transition: stroke .4s;
+    }
+
+    &__btn:hover path {
+        stroke: hsl(26, 100%, 55%);
     }
 
     &__prev-photo-btn {
@@ -334,7 +373,7 @@ body {
         margin: 2em auto 0;
         justify-content: space-between;
         width: 100%;
-        max-width: 60em;
+        max-width: 50em;
     }
 
     &__photo {
@@ -350,20 +389,18 @@ body {
         overflow: hidden;
     }
 
-    &__photo::before {
+    &__photo-focus {
+        border: 3px solid hsl(26, 100%, 55%);
+    }
+
+    &__photo-focus::before {
         position: absolute;
         content: '';
         top: 0;
         left: 0;
         height: 100%;
         width: 100%;
-        transform: scale(0);
-        transition: transform .2s;
-        background-color: rgba(255, 255, 255, .6);
-    }
-
-    &__photo:hover::before {
-        transform: scale(1);
+        background-color: rgba(255, 255, 255, .5);
     }
 
     &__photo--first {
@@ -381,24 +418,25 @@ body {
     &__photo--fourth {
         background-image: url('../images/image-product-4-thumbnail.jpg');        
     }
-
-    &__photo-focus {
-        border: 3px solid hsl(26, 100%, 55%);
-    }
-
-    &__photo-focus::before {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(255, 255, 255, .6);
-    }
-
-
 }
 
+.modal.modal-show {
+    display: flex;
+}
+
+// .modal__photo.modal__photo-focus {
+//     border: 2px solid hsl(26, 100%, 55%);
+// }
+
+// .modal__photo.modal__photo-focus::before { 
+//     position: absolute;
+//     content: '';
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+//     background-color:rgba(255, 255, 255, .6);    
+// }
 
 .photos {
     padding: 2em 0;
@@ -432,6 +470,14 @@ body {
         right: 5%;
     }
 
+    &__btn path {
+        transition: stroke .4s;
+    }
+
+    &__btn:hover path {
+        stroke: hsl(26, 100%, 55%);
+    }
+
     &__photo-gallery {
         display: none;
         margin: 2em auto 0;
@@ -443,13 +489,14 @@ body {
     &__photo {
         position: relative;
         height: 10em;
-        width: 20%;
+        width: 23%;
         max-width: 10em;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         border-radius: 8px;
         cursor: pointer;
+        overflow: hidden;
     }
 
     &__photo--first {
@@ -564,6 +611,12 @@ body {
         font-size: 2.6rem;
         color: hsl(26, 100%, 55%);
         cursor: pointer;
+        transition: color .4s;
+    }
+
+    &__amount-minus:hover,
+    &__amount-plus:hover {
+        color: hsl(26, 100%, 75%);
     }
 
     &__add-to-cart-btn {
@@ -574,6 +627,11 @@ body {
         text-align: center;
         box-shadow: 0 2px 10px hsl(26, 100%, 55%);
         cursor: pointer;
+        transition: background-color .4s;
+    }
+
+    &__add-to-cart-btn:hover {
+        background-color: hsl(26, 100%, 75%);
     }
 
     &__add-to-cart-btn i {
@@ -595,6 +653,8 @@ body {
     .product-description {
         padding: 2em 6em;
     }
+
+   
 }
 
 @media (min-width: 768px) {
@@ -665,6 +725,10 @@ body {
         }
     }
 
+    .cart { 
+        right:  3%;
+        transform: translateX(0);
+    }
     
 }
 

@@ -58,13 +58,16 @@ const deleteProduct = () => {
         amountInCart.textContent = amount;
         const result = countPrice(125, amount);
         finallyPriceInCart.textContent = `$${result}`;
+        cartIconBtn.setAttribute('data-content', amountInCart.textContent);
     } else {
+        cartIconBtn.classList.remove('show-amount');
         deleteAllProducts();
     }    
 }
 
 const deleteAllProducts = () => {
     cartContainer.innerHTML = '<h4 class="cart__title">Cart</h4><p class="cart__empty">Your cart is empty</p>';
+    cartIconBtn.classList.remove('show-amount');
 }
 
 const addToCart = () => {
@@ -81,7 +84,7 @@ const addToCart = () => {
           <p class="cart__product-amount">${amount.textContent}</p>
           <p class="cart__product-finally-price">$${result}</p>
         </div>
-        <button class="cart__product-delete-btn"><i class="fas fa-trash-alt"></i></button>
+        <button class="cart__product-delete-btn"><img src="./images/icon-delete.svg"></button>
       </div>
     </div>
     <div class="cart__checkout-btn">Checkout</div>`;
