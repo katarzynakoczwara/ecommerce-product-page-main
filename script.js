@@ -12,6 +12,9 @@ const mobileMenuCloseBtn = document.querySelector('.mobile-menu__close-btn');
 const shadow = document.querySelector('.shadow');
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('.modal__close-btn');
+const photos = document.querySelectorAll('.photos__photo');
+const modalPhotos = document.querySelectorAll('.modal__photo');
+const modalPhotoBtns = document.querySelectorAll('.modal__btn');
 
 let counter = 1;
 let amountCounter = 0;
@@ -150,5 +153,39 @@ mainPhoto.addEventListener('click', () => {
 
 modalCloseBtn.addEventListener('click', () => {
     modal.classList.remove('modal-show');
+});
+
+photos.forEach(photo => {
+    photo.addEventListener('click', () => {
+        photos.forEach(photo => {
+            photo.classList.remove('photos__photo-focus');
+        })
+        photo.classList.add('photos__photo-focus');
+        changeMainPhoto(photo);
+        const number = photo.dataset.number;
+        addFocusClass(number);
+    })
 })
+
+const changeMainPhoto = photo => {
+    const photoSource = window.getComputedStyle(photo).getPropertyValue('background-image');
+    const cutSource = photoSource.slice(5, -2);
+    const replaceSource = cutSource.replace('-thumbnail', '');
+    mainPhoto.src = replaceSource;
+    const modalMainPhoto = document.querySelector('.modal__main-photo');
+    modalMainPhoto.src = replaceSource;
+}
+
+const addFocusClass = number => {
+    modalPhotos.forEach(photo => {
+        photo.classList.remove('modal__photo-focus');
+    })
+    modalPhotos.forEach(photo => {       
+        if(photo.dataset.number === number) {
+            photo.classList.add('modal__photo-focus');
+        }
+    })
+}
+
+
 

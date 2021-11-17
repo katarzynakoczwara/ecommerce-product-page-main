@@ -424,20 +424,6 @@ body {
     display: flex;
 }
 
-// .modal__photo.modal__photo-focus {
-//     border: 2px solid hsl(26, 100%, 55%);
-// }
-
-// .modal__photo.modal__photo-focus::before { 
-//     position: absolute;
-//     content: '';
-//     top: 0;
-//     left: 0;
-//     height: 100%;
-//     width: 100%;
-//     background-color:rgba(255, 255, 255, .6);    
-// }
-
 .photos {
     padding: 2em 0;
 
@@ -500,19 +486,19 @@ body {
     }
 
     &__photo--first {
-        background-image: url('../images/image-product-1.jpg');        
+        background-image: url('../images/image-product-1-thumbnail.jpg');        
     }
 
     &__photo--second {
-        background-image: url('../images/image-product-2.jpg');        
+        background-image: url('../images/image-product-2-thumbnail.jpg');        
     }
 
     &__photo--third {
-        background-image: url('../images/image-product-3.jpg');        
+        background-image: url('../images/image-product-3-thumbnail.jpg');        
     }
 
     &__photo--fourth {
-        background-image: url('../images/image-product-4.jpg');        
+        background-image: url('../images/image-product-4-thumbnail.jpg');        
     }
 
     &__photo-focus {
