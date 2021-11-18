@@ -717,7 +717,7 @@ body {
 
 @media (min-width: 992px) {
     .header {
-        padding: 3em;
+        padding: 2em;
     }
 
     .container {
@@ -733,6 +733,8 @@ body {
 
 @media (min-width: 1200px) {
     .header {
+        padding: 2em 15em;
+
         &__logo {
             font-size: 3.2rem;
         }
