@@ -490,6 +490,7 @@ body {
 .photos__main-photo-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .photos__main-photo {

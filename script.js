@@ -13,11 +13,13 @@ const shadow = document.querySelector('.shadow');
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('.modal__close-btn');
 const photos = document.querySelectorAll('.photos__photo');
+const modalMainPhoto = document.querySelector('.modal__main-photo');
 const modalPhotos = document.querySelectorAll('.modal__photo');
 const modalPhotoBtns = document.querySelectorAll('.modal__btn');
 
 let counter = 1;
 let amountCounter = 0;
+let number;
 
 const nextPhoto = () => {
     if(counter < 4) {
@@ -107,12 +109,83 @@ const addToCart = () => {
     });
 }
 
+const changeMainPhoto = number => {
+    mainPhoto.src = `./images/image-product-${number}.jpg`;
+}
+
+const changeModalMainPhoto = number => {
+    modalMainPhoto.src = `./images/image-product-${number}.jpg`;
+}
+
+const removeAllListenersFromSmallPhotos = ()  => {
+    photos.forEach(photo => {
+        photo.classList.remove('photos__photo-focus');
+    });
+}
+
+const removeAllListenersFromSmallModalPhotos = ()  => {
+    modalPhotos.forEach(photo => {
+        photo.classList.remove('modal__photo-focus');
+    });
+}   
+
+const addFocusOnSmallPhoto = number => {
+    removeAllListenersFromSmallPhotos();
+    photos.forEach(photo => {
+        if(photo.dataset.number === number) {
+            photo.classList.add('photos__photo-focus');
+        }
+    });
+}
+
+const addFocusOnSmallModalPhoto = number => {
+    removeAllListenersFromSmallModalPhotos();
+    modalPhotos.forEach(photo => {
+        if(photo.dataset.number === number) {
+            photo.classList.add('modal__photo-focus');
+        }
+    });
+}
+
+const changePhotos = btn  => {
+    if(btn.classList.contains('modal__next-photo-btn')) {
+        if(number < 4) {
+            number++;
+            addFocusOnSmallModalPhoto(number.toString());
+            addFocusOnSmallPhoto(number.toString());
+            changeMainPhoto(number);
+            changeModalMainPhoto(number);
+        } else {
+            number = 1;
+            addFocusOnSmallModalPhoto(number.toString());
+            addFocusOnSmallPhoto(number.toString());
+            changeMainPhoto(number);
+            changeModalMainPhoto(number);
+        }
+    } else {
+        prevPhoto(modalMainPhoto);
+        if(number > 1) {
+            number--;
+            addFocusOnSmallModalPhoto(number.toString());
+            addFocusOnSmallPhoto(number.toString());
+            changeMainPhoto(number);
+            changeModalMainPhoto(number);
+        } else {
+            number = 4;
+            addFocusOnSmallModalPhoto(number.toString());
+            addFocusOnSmallPhoto(number.toString());
+            changeMainPhoto(number);
+            changeModalMainPhoto(number);
+        }
+    }
+}
+
 photoBtns.forEach( btn => {
     btn.addEventListener('click', () => {
         if(btn.classList.contains('photos__next-photo-btn')) {
-            nextPhoto();
+            nextPhoto(mainPhoto);
         } else {
-            prevPhoto();
+            prevPhoto(mainPhoto);
         }
     })
 });
@@ -149,6 +222,11 @@ mobileMenuCloseBtn.addEventListener('click', () => {
 
 mainPhoto.addEventListener('click', () => {
     modal.classList.add('modal-show');
+    photos.forEach(photo => {
+        if(photo.classList.contains('photos__photo-focus')) {
+            number  = photo.dataset.number;
+        }
+    })
 });
 
 modalCloseBtn.addEventListener('click', () => {
@@ -156,36 +234,37 @@ modalCloseBtn.addEventListener('click', () => {
 });
 
 photos.forEach(photo => {
-    photo.addEventListener('click', () => {
-        photos.forEach(photo => {
-            photo.classList.remove('photos__photo-focus');
-        })
+    photo.addEventListener('click', () => { 
+        removeAllListenersFromSmallPhotos();       
         photo.classList.add('photos__photo-focus');
-        changeMainPhoto(photo);
         const number = photo.dataset.number;
-        addFocusClass(number);
+        changeMainPhoto(number);
+        changeModalMainPhoto(number);
+        addFocusOnSmallModalPhoto(number);
     })
-})
+});
 
-const changeMainPhoto = photo => {
-    const photoSource = window.getComputedStyle(photo).getPropertyValue('background-image');
-    const cutSource = photoSource.slice(5, -2);
-    const replaceSource = cutSource.replace('-thumbnail', '');
-    mainPhoto.src = replaceSource;
-    const modalMainPhoto = document.querySelector('.modal__main-photo');
-    modalMainPhoto.src = replaceSource;
-}
+modalPhotoBtns.forEach(btn => {    
+    btn.addEventListener('click', () => {
+        changePhotos(btn);        
+    })
+});
 
-const addFocusClass = number => {
-    modalPhotos.forEach(photo => {
-        photo.classList.remove('modal__photo-focus');
+modalPhotos.forEach(photo => {    
+    photo.addEventListener('click', () => {
+        removeAllListenersFromSmallModalPhotos();
+        photo.classList.add('modal__photo-focus');
+        const number  = photo.dataset.number;
+        changeMainPhoto(number);
+        changeModalMainPhoto(number);
+        addFocusOnSmallPhoto(number);
     })
-    modalPhotos.forEach(photo => {       
-        if(photo.dataset.number === number) {
-            photo.classList.add('modal__photo-focus');
-        }
-    })
-}
+});
+
+
+
+
+
 
 
 
