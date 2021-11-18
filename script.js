@@ -53,9 +53,7 @@ const increaseAmount = () => {
     amount.textContent = amountCounter;    
 }
 
-const countPrice = (price, amount) => {
-    return price * amount;
-}
+const countPrice = (price, amount) => price * amount;
 
 const deleteProduct = () => {
     const amountInCart = document.querySelector('.cart__product-amount');
@@ -221,12 +219,13 @@ mobileMenuCloseBtn.addEventListener('click', () => {
 });
 
 mainPhoto.addEventListener('click', () => {
-    modal.classList.add('modal-show');
-    photos.forEach(photo => {
+    if(window.innerWidth > 767) {
+        modal.classList.add('modal-show');
+        photos.forEach(photo => {
         if(photo.classList.contains('photos__photo-focus')) {
             number  = photo.dataset.number;
         }
-    })
+    })}
 });
 
 modalCloseBtn.addEventListener('click', () => {
