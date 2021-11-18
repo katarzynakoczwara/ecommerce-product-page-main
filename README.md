@@ -18,7 +18,7 @@ Users should be able to:
 ![](./screenshot.png)
 ### Links
 
-- Live Site URL: [https://katarzynakoczwara.github.io/ecommerce-product-page-main/]
+- Live Site URL: https://katarzynakoczwara.github.io/ecommerce-product-page-main/
 ### Built with
 
 - Semantic HTML5 markup
